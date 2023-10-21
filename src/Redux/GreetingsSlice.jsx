@@ -22,7 +22,7 @@ const greetingSlice = createSlice({
       })
       .addCase(fetchGreetings.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.randomGreeting = action.payload; // Fix the property name here
+        state.randomGreeting = action.payload;
       })
       .addCase(fetchGreetings.rejected, (state, action) => {
         state.isLoading = false;
