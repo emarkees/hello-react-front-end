@@ -2,34 +2,33 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  randomgreetings: [],
+  randomGreeting: '',
   isLoading: false,
-  errors: null
 };
 
 export const fetchGreetings = createAsyncThunk('greeting/fetchGreetings', async () => {
-  const resp = await axios.get(url);
-  return resp.data
-})
+  const resp = await axios.get('http://127.0.0.1:3000/messages');
+  return resp.data;
+});
 
 const greetingSlice = createSlice({
   name: 'greetings',
   initialState,
-  reducer: {},
-  extraReducer(builder) {
+  reducers: {},
+  extraReducers(builder) {
     builder
       .addCase(fetchGreetings.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(fetchGreetings.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.randomgreetings = action.payload;
+        state.randomGreeting = action.payload; // Fix the property name here
       })
-      .addCase(fetchGreeting.rejected, (state, action) => {
+      .addCase(fetchGreetings.rejected, (state, action) => {
         state.isLoading = false;
         state.errors = action.payload;
       });
-  }
+  },
 });
 
-export default greetingSlice.reducer
+export default greetingSlice.reducer;
