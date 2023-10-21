@@ -4,6 +4,7 @@ import axios from 'axios';
 const initialState = {
   randomGreeting: '',
   isLoading: false,
+  errors: null,
 };
 
 export const fetchGreetings = createAsyncThunk('greeting/fetchGreetings', async () => {
