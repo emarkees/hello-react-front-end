@@ -4,8 +4,6 @@
 
 <div align="center">
 
-<img src="public/logo-trans.png" style='border-radius:50%' alt="logo" width="140"  height="auto" />
-
 <h2><b>Hello react front end</b></h2>
 
 </div>
